@@ -58,6 +58,7 @@ public class ProdutoService {
      * Método que atualiza um produto na lista de produtos
      * 
      * @param produto que será atualizado
+     * @param id      do produto que será atualizado
      * @return Retorna o produto atualizado
      */
     public Produto atualizar(Integer id, Produto produto) {
