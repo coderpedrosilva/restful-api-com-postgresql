@@ -1,6 +1,5 @@
 package com.projeto.projetojava.services;
 
-import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Optional;
 
@@ -22,7 +21,7 @@ public class ProdutoService {
      * @return Lista de produtos
      */
     public List<Produto> obterTodos() {
-        return produtoRepository.obterTodos();
+        return produtoRepository.findAll();
     }
 
     /**
@@ -32,7 +31,7 @@ public class ProdutoService {
      * @return Retorna um produto caso seja encontrado
      */
     public Optional<Produto> obterPorId(Integer id) {
-        return produtoRepository.obterPorId(id);
+        return produtoRepository.findById(id);
     }
 
     /**
@@ -42,7 +41,7 @@ public class ProdutoService {
      * @return Retorna o produto adicionado
      */
     public Produto adicionar(Produto produto) {
-        return produtoRepository.adicionar(produto);
+        return produtoRepository.save(produto);
     }
 
     /**
@@ -51,7 +50,7 @@ public class ProdutoService {
      * @param id do produto a ser deletado
      */
     public void deletar(Integer id) {
-        produtoRepository.deletar(id);
+        produtoRepository.deleteById(id);
     }
 
     /**
@@ -64,7 +63,7 @@ public class ProdutoService {
     public Produto atualizar(Integer id, Produto produto) {
 
         produto.setId(id);
-        return produtoRepository.atualizar(produto);
+        return produtoRepository.save(produto);
     }
 
 }
